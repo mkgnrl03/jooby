@@ -1,0 +1,17 @@
+{
+    "name": "mkgnrl03/jooby",
+    "description": "Job listing application",
+    "authord":  [
+        {
+            "name": "Miko Generale",
+            "email": "mikognrl@gmail.com"
+        }
+    ],
+
+    "autoload": {
+        "psr-4":{
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}

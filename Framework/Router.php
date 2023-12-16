@@ -1,7 +1,17 @@
 <?php  
-    
+   namespace Framework;
+
   class Router {
     protected $routes = [];
+
+   /**
+    * Add a new route
+    *
+    * @param string $method
+    * @param string $uri
+    * @param string $controller
+    * @return void
+    */
 
     public function registerRoute($method, $uri, $controller){
         $this->routes[] = [
@@ -10,6 +20,7 @@
             'controller' => $controller
         ];
     }
+
 
     /**
      * Add a GET route
@@ -80,14 +91,15 @@
  */
 
     public function route($uri, $method){
+      
         foreach($this->routes as $route){
             if($route['uri'] === $uri && $route['method'] === $method){
-                require basePath($route['controller']);
+                require basePath('App/'.$route['controller']);
                 return;
             }
         }
-
-        $this->error(403);
+      
+        $this->error(404);
 
     }
 
